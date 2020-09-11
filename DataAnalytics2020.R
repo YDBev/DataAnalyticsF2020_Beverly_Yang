@@ -1,4 +1,4 @@
-# Week1
+# Lab1
 
 # MASS library
 install.packages("MASS") # installing the MASS package
@@ -45,9 +45,15 @@ head(data1)
 names(data1)   #or colnames(data1)
 summary(data1)
 EPI <- data1$EPI
-fivenum(EPI)
+fivenum(EPI, na.rm=TRUE)
+stem(EPI)
 boxplot(EPI)
 hist(EPI)
+hist(EPI,seq(20.,95.,1.0),prob=TRUE)
+lines(density(EPI,na.rm=TRUE,bw=1.)) #bw=binwidth, or try bw="SJ")
+rug(EPI)
+tf <- is.na(EPI)
+E <- EPI[!tf] #filters out na
 
 ## use EPI_data.csv
 # has NA
